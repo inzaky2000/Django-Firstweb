@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %} กลุ่มงานกิจการพิเศษ · ติดต่อเรา {% endblock title %}
+
+{% block menubar %}
+  <a class="nav-link fw-bold py-1 px-0 " aria-current="page" href="{% url 'home' %}">หน้าแรก</a>
+  <a class="nav-link fw-bold py-1 px-0 " href="{% url 'research' %}">งานวิจัย</a>
+  <a class="nav-link fw-bold py-1 px-0 " href="{% url 'tracking' %}">ติดตามพัสดุ</a>
+  <a class="nav-link fw-bold py-1 px-0 active" href="{% url 'contact' %}">ติดต่อเรา</a>
+{% endblock menubar %}
+
+{% block content %}
+
+  <h1>ติดต่อเรา</h1>
+  <p class="lead">ศูนย์ราชการจังหวัดชายแดนภาคใต้ ชั้น 5 </p>
+  <p class="lead">318 ถนนสิโรรส ตำบลสะเตง อำเภอเมืองยะลา จังหวัดยะลา </p>
+  <p class="lead">โทร 073 257 009 </p>
+  <p class="lead">
+    <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">รายละเอียดเพิ่มเติม</a>
+  </p>
+
+{% endblock content %}
+
