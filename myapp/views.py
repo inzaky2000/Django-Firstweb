@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Tracking
 
 # Create your views here.
 # นี่คือเครื่องหมายคอมเม้นท์ ใน ไพทอน
@@ -17,7 +18,9 @@ def Contact(request):
 def Sawatdee(request):
     return HttpResponse('<h1>สวัสดีครับคุณนาย 555</h1>')
 
-def Tracking(request):
-    tracks = ['ลุงวิศวกร - TA349TH','พีระพล อ. - TA359TH','somchai - TA379TH','somwang - TA452Th']
+def TrackingPage(request):
+    #tracks = ['ลุงวิศวกร - TA349TH','พีระพล อ. - TA359TH','somchai - TA379TH','somwang - TA452Th']
+
+    tracks = Tracking.objects.all()
     contaxt = {'mytracks':tracks} #mythracks อาจจะใช้คำว่า tracks เพื่อให้จำง่าย
     return render(request,'myapp/tracking.html',contaxt)

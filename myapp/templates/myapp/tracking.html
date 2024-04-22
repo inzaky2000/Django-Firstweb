@@ -11,11 +11,16 @@
 
 {% block content %}
 
-{% for t in mytracks %} <!--mytracks เรียกมาจาก ไฟล์ views.py-->
-
-  <h1>{{t}}</h1><br>
-
-{% endfor %}
+  {% for t in mytracks %} <!--mytracks เรียกมาจาก ไฟล์ views.py-->
+    {% if t.tracking %}
+      <h1>ชื่อลูกค้า : {{t.name}}</h1>
+      <h2>หมายเลข Tracking : {{t.tracking}}</h2><br>
+    {% else %}
+      <h1>ชื่อลูกค้า : {{t.name}}</h1>
+      <h2>หมายเลข Tracking : ยังไม่เริมจัดส่ง</h2>
+    {% endif %}
+    ---------------------------
+  {% endfor %}
 
 {% endblock content %}
 
