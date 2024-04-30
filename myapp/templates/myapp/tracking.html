@@ -2,12 +2,14 @@
 
 {% block title %} กลุ่มงานกิจการพิเศษ · ติดตามพัสดุ {% endblock title %}
 
-{% block menubar %}
-  <a class="nav-link fw-bold py-1 px-0 " aria-current="page" href="{% url 'home' %}">หน้าแรก</a>
-  <a class="nav-link fw-bold py-1 px-0 " href="{% url 'research' %}">งานวิจัย</a>
-  <a class="nav-link fw-bold py-1 px-0 active" href="{% url 'tracking' %}">ติดตามพัสดุ</a>
-  <a class="nav-link fw-bold py-1 px-0 " href="{% url 'contact' %}">ติดต่อเรา</a>
-{% endblock menubar %}
+{% comment %}
+  {% block menubar %}
+    <a class="nav-link fw-bold py-1 px-0 " aria-current="page" href="{% url 'home' %}">หน้าแรก</a>
+    <a class="nav-link fw-bold py-1 px-0 " href="{% url 'research' %}">งานวิจัย</a>
+    <a class="nav-link fw-bold py-1 px-0 active" href="{% url 'tracking' %}">ติดตามพัสดุ</a>
+    <a class="nav-link fw-bold py-1 px-0 " href="{% url 'contact' %}">ติดต่อเรา</a>
+  {% endblock menubar %}
+{% endcomment %}
 
 {% block content %}
 

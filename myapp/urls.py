@@ -6,6 +6,7 @@ urlpatterns = [
     path('', Home, name= 'home'),
     path('research', Research, name= 'research'), #path จริงคือ www.localhost/research
     path('contact', Contact, name='contact'),
-    path('tracking' ,TrackingPage, name= 'tracking'),
+    path('tracking' ,TrackingPage, name= 'tracking'), # TrackingPage เป็นชื่อ function ใน views.py
     path('sawatdee', Sawatdee),
+    path('ask',Ask,name='ask')
 ]
