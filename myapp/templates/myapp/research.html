@@ -18,7 +18,7 @@
     <table class="table table-success table-striped">
       <thead>
         <tr class="table-active">
-          <th colspan="2" class="table-active">#</th>
+          <th colspan="2" class="table-active">ที่</th>
           <th colspan="2" class="table-active">ชื่องานวิจัย</th>
           <th colspan="2" class="table-active">ชื่อผู้วิจัย</th>
           <th colspan="2" class="table-active">ชื่อปีที่ทำวิจัย</th>
@@ -29,7 +29,7 @@
       <tbody>
         {% for t in myrs_research %} 
         <tr >
-          <th scope="row">1</th>
+          <td colspan="2" class="table-active">{{t.id}}</td>
           <td colspan="2" class="table-active">{{t.rs_nameth}}</td>
           <td colspan="2" class="table-active">{{t.rs_fname_th}} {{t.rs_lname_th}}</td>
           <td colspan="2" class="table-active">{{t.rs_year}}</td>

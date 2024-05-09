@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %} กลุ่มงานกิจการพิเศษ · บล็อก {% endblock title %}
+
+{% block content %}
+
+
+<main>
+  <section class="py-5 text-center container">
+    <div class="album py-5 bg-body-black">
+      <div class="container">      
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for post in posts %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" style="object-fit: cover;" src=" {{ post.images.url}}"></img>
+              <div class="card-body">
+                <p class="card-text"> {{ post.title }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">ดู</button>
+                  </div>
+                  <small class="text-body-secondary">{{ post.date_created|date }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>    
+    </div>
+  </section>
+</main>
+  
+
+{% endblock content %}
+
+
+
