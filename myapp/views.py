@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 #from .models import Tracking
 #from .models import myresearch
 from .models import *
-from django.contrib.auth.decorators import login_required
-from django_summernote.admin import SummernoteModelAdmin
+from django.contrib.auth.decorators import login_required #บังคับล็อกอิน
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 # นี่คือเครื่องหมายคอมเม้นท์ ใน ไพทอน
@@ -89,3 +90,44 @@ def Posts(request):
     context = {"posts": posts}
 
     return render(request, 'myapp/blogs.html', context)
+
+#ทำฟังค์ชั่นรายละเอียดบทความ
+def PostDetail(request, slug):
+    try:
+        single_post = get_object_or_404(Post, slug=slug) #Post ในที่นี้ หมายถึง Model Post
+        print("รายละเอียดบทความ", single_post)
+    except Post.DoesNotExist:
+        return render(request, 'myapp/home.html')
+    context = {"single_post": single_post,}
+
+    return render(request, 'myapp/blog-detail.html',context)
+
+
+
+def Register(request):
+
+    context = {}
+
+    if request.method == 'POST':
+        data = request.POST.copy()
+        #print('DATA:', data)
+        name = data.get('name') #name=name โดย name เป็นตัวที่อยู่ในไฟล์ html
+        email = data.get('email')
+        password = data.get('password')
+
+        check = User.objects.filter(username = email)
+
+        # print('CHECK:' ,check)
+
+        if len(check) == 0:
+            newuser = User()
+            newuser.username = email
+            newuser.first_name = name
+            newuser.set_password(password)
+            newuser.save()
+            context['success'] = 'success'
+        else:
+            context['usertaken'] = 'usertaken'
+
+    return render(request, 'myapp/register.html')
+

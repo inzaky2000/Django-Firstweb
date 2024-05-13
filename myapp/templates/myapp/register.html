@@ -1,0 +1,60 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %} กลุ่มงานกิจการพิเศษ·ยินดีต้อนรับสู่หน้าสมัครสมาชิก {% endblock title %}
+
+{% block content %}
+
+{% if success %}
+<br><br>
+<div class="alert alert-secondary" role="alert">
+    คุณได้สมัครสมาชิกเรียบร้อยแล้ว!
+  </div>
+
+{% else %}
+
+    {% if usertaken %}
+    <div class="alert alert-warning" role="alert">
+        อีเมลนี้ถูกใช้งานไปแล้ว กรุณากรอกอีเมล์ใหม่!
+      </div>
+
+      <center>กรุณาล็อกอินตามช่องทางนี้ หรือ ลืมพาสเวิร์ด</center>
+
+    {% endif %}
+
+<br><br>
+    <h2>สมัครสมาชิกในหน้านี้ได้เลยครับ</h2><br>
+
+    {% comment %} ชื่อผู้ติดต่อ {% endcomment %}
+    {% comment %} email (text) {% endcomment %}
+    {% comment %} หัวข้อ {% endcomment %}
+    {% comment %} รายละเอียด (textarea) {% endcomment %}
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="name">ชื่อ-สกุล</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div><br>
+
+            <div class="form-group">
+                <label for="name">email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div><br>
+
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div><br>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+            
+        </form>
+        
+    </div>
+    
+{% endif %}
+
+
+{% endblock content %}

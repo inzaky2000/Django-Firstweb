@@ -11,5 +11,8 @@ urlpatterns = [
     path('ask',Ask,name='ask'),
     path('questions', Questions, name='questions'),
     path('answer/<int:askid>', Answer, name='answer'),
-    path('blogs',Posts, name='post'),
+    path('blogs/',Posts, name='post'),
+    path('blog/<slug:slug>/', PostDetail, name='post-detail'),
+    #Register and Login
+    path('register',Register, name='register'),
 ]
